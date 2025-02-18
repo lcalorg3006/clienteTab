@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet, ActivityIndicator } from 'react-native';
-import useComputerStore from '../store/computerStore';
 import ComputerForm from '../components/ComputerForm';
+import useComputerStore from '../store/computerStore';
+import { Computer } from '../type';
 
-const ComputerManagement = () => {
+const ComputerManagement: React.FC = () => {
   const { computers, loading, error, fetchComputers } = useComputerStore();
 
   useEffect(() => {
@@ -23,7 +24,7 @@ const ComputerManagement = () => {
       <View style={styles.center}>
         <Text style={styles.error}>{error}</Text>
       </View>
- );
+    );
   }
 
   return (
@@ -34,14 +35,12 @@ const ComputerManagement = () => {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View style={styles.computerItem}>
-            <Text>Estudiante: {item.studentName}</Text>
-            <Text>Grado: {item.grade}</Text>
-            <Text>Aula: {item.classroomId}</Text>
+            <Text>📌Estudiante: {item.studentName}</Text>
+            <Text>📚Grado: {item.grade}</Text>
+            <Text>🏫Aula: {item.classroomId}</Text>
           </View>
         )}
-        ListEmptyComponent={
-          <Text style={styles.emptyText}>No hay computadoras registradas</Text>
-        }
+        ListEmptyComponent={<Text style={styles.emptyText}>No hay computadoras registradas</Text>}
       />
     </View>
   );
@@ -51,6 +50,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
+    backgroundColor: '#f0f4f8',
   },
   center: {
     flex: 1,
@@ -59,11 +59,16 @@ const styles = StyleSheet.create({
   },
   computerItem: {
     padding: 16,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#ffffff',
     borderRadius: 8,
     marginBottom: 8,
     borderWidth: 1,
     borderColor: '#ddd',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
   },
   error: {
     color: 'red',
@@ -74,7 +79,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 20,
     color: '#666',
-  }
+  },
 });
 
 export default ComputerManagement;
