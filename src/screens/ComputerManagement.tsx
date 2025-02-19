@@ -5,6 +5,7 @@ import useComputerStore from '../store/computerStore';
 import { Computer } from '../type';
 
 const ComputerManagement: React.FC = () => {
+  
   const { computers, loading, error, fetchComputers } = useComputerStore();
 
   useEffect(() => {

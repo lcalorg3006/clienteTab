@@ -6,7 +6,7 @@ export interface Computer {
   }
   export type RootStackParamList = {
     MainMenu: undefined;             
-    'Agregar Computadora': undefined;  
-    'Buscar Computadora': undefined;  
+    'ComputerManagement': undefined;  
+    'SearchComputer': undefined;  
   };
   

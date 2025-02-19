@@ -1,42 +1,44 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack'; 
-import { RootStackParamList } from '../type';
+import { Text } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import ComputerManagement from './ComputerManagement';
+import SearchComputer from './SearchComputer';
+import Ionicons from 'react-native-vector-icons/Ionicons';  
 
-type MainMenuNavigationProp = StackNavigationProp<RootStackParamList, 'MainMenu'>;
+const Tab = createBottomTabNavigator();
 
-const MainMenu: React.FC = () => {
-  const navigation = useNavigation<MainMenuNavigationProp>(); 
-
+function Main() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Menú Principal</Text>
-      <Button 
-        title="Añadir Computadora" 
-        onPress={() => navigation.navigate('Agregar Computadora')} 
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+      
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName = 'help-circle';
+          
+          if (route.name === 'SearchComputer') {
+            iconName = focused ? 'search' : 'search-outline';
+          } else if (route.name === 'ComputerManagement') {
+            iconName = focused ? 'add-circle' : 'add-circle-outline';
+          }
+          
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+        tabBarActiveTintColor: 'red',
+        tabBarInactiveTintColor: 'gray',
+      })}
+    >
+      <Tab.Screen
+        name="ComputerManagement"
+        component={ComputerManagement}
+        options={{ tabBarLabel: 'Agregar' }}
       />
-      <Button 
-        title="Buscar Computadora" 
-        onPress={() => navigation.navigate('Buscar Computadora')} 
+      <Tab.Screen
+        name="SearchComputer"
+        component={SearchComputer}
+        options={{ tabBarLabel: 'Buscar' }}
       />
-    </View>
+    </Tab.Navigator>
   );
-};
+}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 16,
-    backgroundColor: '#f0f4f8',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 32,
-  },
-});
-
-export default MainMenu;
+export default Main;
