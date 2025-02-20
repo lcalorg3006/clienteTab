@@ -11,11 +11,7 @@ const Stack = createStackNavigator<RootStackParamList>();
 const App: React.FC = () => (
   <NavigationContainer>
     
-    <Stack.Navigator initialRouteName="MainMenu">
-      <Stack.Screen name="MainMenu" component={MainMenu} />
-      <Stack.Screen name="ComputerManagement" component={ComputerForm} />
-      <Stack.Screen name="SearchComputer" component={SearchComputer} />
-    </Stack.Navigator>
+  <MainMenu></MainMenu>
   </NavigationContainer>
 );
 

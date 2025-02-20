@@ -1,27 +1,33 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { View, Text } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ComputerManagement from './ComputerManagement';
 import SearchComputer from './SearchComputer';
-import Ionicons from 'react-native-vector-icons/Ionicons';  
 
 const Tab = createBottomTabNavigator();
 
-function Main() {
+function MainMenu() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-      
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName = 'help-circle';
-          
+        tabBarIcon: () => null, 
+        tabBarLabel: () => {
           if (route.name === 'SearchComputer') {
-            iconName = focused ? 'search' : 'search-outline';
+            return (
+              <View style={{ alignItems: 'center', marginTop: -29 }}>
+                <Text style={{ fontSize: 20 }}>🔍</Text>
+                <Text style={{ fontSize: 12, color: 'gray' }}>Buscar</Text>
+              </View>
+            );
           } else if (route.name === 'ComputerManagement') {
-            iconName = focused ? 'add-circle' : 'add-circle-outline';
+            return (
+              <View style={{ alignItems: 'center', marginTop: -29 }}>
+                <Text style={{ fontSize: 20 }}>➕</Text>
+                <Text style={{ fontSize: 12, color: 'gray' }}>Agregar</Text>
+              </View>
+            );
           }
-          
-          return <Ionicons name={iconName} size={size} color={color} />;
+          return null;
         },
         tabBarActiveTintColor: 'red',
         tabBarInactiveTintColor: 'gray',
@@ -30,15 +36,15 @@ function Main() {
       <Tab.Screen
         name="ComputerManagement"
         component={ComputerManagement}
-        options={{ tabBarLabel: 'Agregar' }}
+        options={{ headerTitle: 'Añadir Computadoras' }}
       />
       <Tab.Screen
         name="SearchComputer"
         component={SearchComputer}
-        options={{ tabBarLabel: 'Buscar' }}
+        options={{ headerTitle: 'Buscar Computadora' }}
       />
     </Tab.Navigator>
   );
 }
 
-export default Main;
+export default MainMenu;
