@@ -1,3 +1,10 @@
+Adaptacion de los componentes a los requerimientos específicos de la aplicación
+Creación de un menú intuitivo y funcional
+ Implementación de navegación fluida entre pantallas
+  Integración correcta de datos externos en la aplicación
+   Manejo eficiente de la asincronía y errores en la carga de datos
+    Implementación de componentes que se adapten a los datos recibidos.
+    Correcta actualización de los componentes al recibir nueva información.
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
