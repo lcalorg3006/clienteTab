@@ -4,101 +4,29 @@ Creación de un menú intuitivo y funcional
   Integración correcta de datos externos en la aplicación
    Manejo eficiente de la asincronía y errores en la carga de datos
     Implementación de componentes que se adapten a los datos recibidos.
-    Correcta actualización de los componentes al recibir nueva información.
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
-
-# Getting Started
-
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
-
-## Step 1: Start Metro
-
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
-
-To start the Metro dev server, run the following command from the root of your React Native project:
-
-```sh
-# Using npm
-npm start
-
-# OR using Yarn
-yarn start
-```
-
-## Step 2: Build and run your app
-
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
+    Correcta actualización de los componentes al recibir nueva información.//reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Interfaz computer:
+ id: string - Identificador único de la computadora.
+classroomId: string - Identificador del aula donde se encuentra la computadora.
+studentName: string - Nombre del estudiante que utiliza la computadora.
+grade: string - Grado escolar del estudiante.
+tipo rootStackParamList:
+Este tipo define las rutas de navegación dentro de la aplicación, especificando las pantallas disponibles y sus parámetros.
+Pantallas:
+MainMenu: Pantalla principal de la aplicación, no requiere parámetros.
+ComputerManagement: Pantalla para gestionar computadoras, no requiere parámetros.
+SearchComputer: Pantalla para buscar computadoras, no requiere parámetros.
+ Componente MainMenu
+ Este componente representa el menú principal de la aplicación. Desde aquí, los usuarios pueden navegar a diferentes secciones de la aplicación, como la gestión de computadoras y la búsqueda de computadoras.
+ Puede recibir propiedades como funciones de navegación y datos del usuario.
+Componente ComputerManagement
+Este componente permite a los usuarios gestionar las computadoras, incluyendo la adición, edición y eliminación de registros de computadoras.
+Puede recibir funciones para manejar la lógica de gestión de computadoras y datos de computadoras.
+ Componente SearchComputer
+ Este componente permite a los usuarios buscar computadoras en el sistema. Puede incluir un formulario de búsqueda y mostrar los resultados.
+ Puede recibir funciones para manejar la búsqueda y datos de computadoras.
+Estructura de la Store
+Estado Inicial: Definimos el estado inicial que contendrá la lista de computadoras.
+Acciones: Funciones para agregar, eliminar y buscar computadoras.
